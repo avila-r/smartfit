@@ -1,3 +1,5 @@
+@import "../../color-variables.scss";
+
 header {
     display: flex;
     flex-direction: column;
@@ -31,11 +33,11 @@ header .logo-container img {
   
   header .text-container h1 {
     font-size: 34px;
-    color: var(--dark-grey);
+    color: $smartfit-dark-grey;
   }
   
   header .text-container p {
-    color: var(--light-grey);
+    color: $smartfit-light-grey;
   }
   
   header .text-container .header-container {
@@ -43,7 +45,6 @@ header .logo-container img {
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-  
     margin-bottom: 24px;
     gap: 14px;
   }
@@ -51,5 +52,5 @@ header .logo-container img {
   header .text-container .header-container .header-border {
     height: 12px;
     width: 40%;
-    background-color: var(--dark-grey);
+    background-color: $smartfit-dark-grey;
   }
