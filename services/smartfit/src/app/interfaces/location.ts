@@ -2,7 +2,7 @@ export interface Location {
     id: number,
     title: string,
     content: string,
-    isOpened: boolean,
+    opened: boolean,
     maskStatus: string,
     towelStatus: string,
     fountainStatus: string,
