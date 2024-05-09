@@ -75,7 +75,7 @@ export class UnitsService {
   }
 
   filter(results: Location[], showClosed: boolean, hour: string){
-    if (!showClosed) results = results.filter(location => location.isOpened === true);
+    if (!showClosed) results = results.filter(location => location.opened === true);
     if (hour) return results.filter(location => this.filterUnits(location, openingHours[hour as hourIndexes].first, openingHours[hour as hourIndexes].last))
       else return results;
   }
