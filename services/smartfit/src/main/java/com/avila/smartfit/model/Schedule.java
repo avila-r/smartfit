@@ -1,4 +1,4 @@
-package com.avila.smartfit.schedule;
+package com.avila.smartfit.model;
 import jakarta.persistence.*;
 import lombok.*;
 

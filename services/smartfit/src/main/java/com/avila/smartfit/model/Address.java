@@ -1,18 +1,18 @@
-package com.avila.smartfit.address;
+package com.avila.smartfit.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-// @Entity @Table(name = "addresses")
+@Entity @Table(name = "addresses")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Address {
-    private Long id;
+    @Id private Long id;
     private String title;
     private String street;
     private String region;
-    private String city_name;
-    private String state_name;
+    private String cityName;
+    private String stateName;
     private String uf;
 }
