@@ -1,7 +1,15 @@
-package com.avila.smartfit.model;
+package com.avila.smartfit.unit;
+import jakarta.persistence.*;
+import lombok.*;
 
-public class Location {
-    private Long id;
+@Entity
+@Table(name = "units")
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class Unit {
+    @Id private Long id;
     private String title;
     private String content;
     private boolean isOpened;

@@ -1,13 +1,16 @@
-package com.avila.smartfit.model;
+package com.avila.smartfit.schedule;
+import jakarta.persistence.*;
+import lombok.*;
 
+@Entity
+@Table(name = "schedules")
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Schedule {
-    private Long id;
-    private String title;
-    private String content;
-    private boolean isOpened;
-    private String maskStatus;
-    private String towelStatus;
-    private String fountainStatus;
-    private String lockerRoomStatus;
-    private Schedule[] schedules;
+    @Id private Long id;
+    private Long locationId;
+    private String weekdays;
+    private String hour;
 }
