@@ -1,10 +1,11 @@
 package com.avila.smartfit.repository;
 import com.avila.smartfit.model.Schedule;
+import com.avila.smartfit.model.Unit;
 import org.springframework.data.repository.ListCrudRepository;
-import java.util.Optional;
+import java.util.List;
 
 @SuppressWarnings("unused")
 public interface ScheduleRepository extends ListCrudRepository<Schedule, Long> {
-    Optional<Schedule> findByLocationId(Long locationId);
-    boolean existsByLocationId(Long locationId);
+    List<Schedule> findByUnitId(Unit unitId);
+    boolean existsByUnitId(Unit unitId);
 }
