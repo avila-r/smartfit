@@ -9,8 +9,17 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Schedule {
-    @Id private Long id;
-    private Long locationId;
+    @Id
+    @Column(name = "id", nullable = false, updatable = false, unique = true)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "unit_id")
+    private Unit unitId;
+
+    @Column(name = "weekdays", nullable = false)
     private String weekdays;
+
+    @Column(name = "hour", nullable = false)
     private String hour;
 }
