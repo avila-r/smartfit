@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SmartfitApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(SmartfitApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(SmartfitApplication.class, args);
+	}
 
 }
