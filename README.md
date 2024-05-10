@@ -7,8 +7,8 @@
 
 ## Features
 
-* Angular Application
-* Spring-Boot Restful API
+* Application's client-side built-in Angular 17
+* Application's server-side as a restful service built-in Spring
 * Spring Data JPA for data persistence
 * PostgreSQL as relational database
 * Docker and Docker-Compose configuration
