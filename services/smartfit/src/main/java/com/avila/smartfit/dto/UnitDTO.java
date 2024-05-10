@@ -1,10 +1,12 @@
 package com.avila.smartfit.dto;
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @Builder
 @Getter @Setter
-public class LocationDTO {
+public class UnitDTO {
     private Long id;
     private String title;
     private String content;
@@ -13,5 +15,5 @@ public class LocationDTO {
     private String towel;
     private String fountain;
     private String locker_room;
-    private ScheduleDTO[] schedules;
+    private List<ScheduleDTO> schedules;
 }
