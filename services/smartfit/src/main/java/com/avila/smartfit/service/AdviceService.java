@@ -4,6 +4,7 @@ import com.avila.smartfit.dto.AddressDTO;
 import com.avila.smartfit.dto.ScheduleDTO;
 import com.avila.smartfit.dto.UnitDTO;
 import com.avila.smartfit.dto.UnitListDTO;
+import com.avila.smartfit.exception.advice.UnreadableUnitsJsonException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
@@ -42,7 +43,7 @@ public class AdviceService implements AdviceJsonServiceContract {
         try {
             return objectMapper.readValue(restTemplate.getForObject("https://test-frontend-developer.s3.amazonaws.com/data/locations.json", String.class), UnitListDTO.class);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e); // TODO: Custom exception
+            throw new UnreadableUnitsJsonException();
         }
     }
 }
