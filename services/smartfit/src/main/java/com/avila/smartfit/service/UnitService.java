@@ -1,6 +1,7 @@
 package com.avila.smartfit.service;
 import com.avila.smartfit.dto.ScheduleDTO;
 import com.avila.smartfit.dto.UnitDTO;
+import com.avila.smartfit.exception.unit.UnitNotFoundException;
 import com.avila.smartfit.model.Schedule;
 import com.avila.smartfit.model.Unit;
 import com.avila.smartfit.repository.ScheduleRepository;
@@ -44,7 +45,7 @@ public class UnitService {
 
         if (unitRepository.existsById(unitDTO.id())) {
             Unit queryUnit = unitRepository.findById(unitDTO.id())
-                    .orElseThrow(); // TODO: Custom exception
+                    .orElseThrow(UnitNotFoundException::new); //
             return UnitDTO.builder()
                     .id(queryUnit.getId())
                     .title(queryUnit.getTitle())
@@ -60,6 +61,6 @@ public class UnitService {
                     )
                     .build();
         }
-        else throw new RuntimeException(); // TODO: Custom exception
+        else throw new UnitNotFoundException(); // TODO: Custom exception
     }
 }
