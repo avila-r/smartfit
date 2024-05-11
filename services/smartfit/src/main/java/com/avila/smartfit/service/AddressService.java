@@ -1,5 +1,6 @@
 package com.avila.smartfit.service;
 import com.avila.smartfit.dto.AddressDTO;
+import com.avila.smartfit.exception.address.AddressNotFoundException;
 import com.avila.smartfit.model.Address;
 import com.avila.smartfit.repository.AddressRepository;
 import com.avila.smartfit.repository.ScheduleRepository;
@@ -12,7 +13,6 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class AddressService {
     private final AddressRepository addressRepository;
-    private final ScheduleRepository scheduleRepository;
 
     @Transactional
     public AddressDTO saveAddress(@NotNull AddressDTO addressDTO){
@@ -29,7 +29,7 @@ public class AddressService {
 
         if (addressRepository.existsById(addressDTO.id())) {
             Address queryAddress = addressRepository.findById(addressDTO.id())
-                    .orElseThrow(); // TODO: Custom exception
+                    .orElseThrow(AddressNotFoundException::new);
             return AddressDTO.builder()
                     .id(queryAddress.getId())
                     .title(queryAddress.getTitle())
@@ -40,6 +40,6 @@ public class AddressService {
                     .uf(queryAddress.getUf())
                     .build();
         }
-        else throw new RuntimeException(); // TODO: Custom exception
+        else throw new AddressNotFoundException();
     }
 }
