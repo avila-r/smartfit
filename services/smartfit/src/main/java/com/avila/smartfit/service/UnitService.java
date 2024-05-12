@@ -45,7 +45,7 @@ public class UnitService {
 
         if (unitRepository.existsById(unitDTO.id())) {
             Unit queryUnit = unitRepository.findById(unitDTO.id())
-                    .orElseThrow(UnitNotFoundException::new); //
+                    .orElseThrow(UnitNotFoundException::new);
             return UnitDTO.builder()
                     .id(queryUnit.getId())
                     .title(queryUnit.getTitle())
@@ -61,6 +61,6 @@ public class UnitService {
                     )
                     .build();
         }
-        else throw new UnitNotFoundException(); // TODO: Custom exception
+        else throw new UnitNotFoundException();
     }
 }
