@@ -10,58 +10,70 @@ import java.util.List;
 @AllArgsConstructor
 public class AddressController {
 
-    @GetMapping
-    public ResponseEntity<AddressDTO> getById(){
+    @GetMapping("/{id}")
+    public ResponseEntity<AddressDTO> getAddressByPathVariableId(@PathVariable Long id){
         return null;
     }
 
     @GetMapping
-    public ResponseEntity<AddressDTO> getByTitle(){
+    public ResponseEntity<AddressDTO> getAddressByRequestParamId(
+            @RequestParam(name = "id") Long id
+    ){
+        if (id != null) return null; else throw new RuntimeException(); // TODO: Custom exception
+    }
+
+    @GetMapping("/title/{title}")
+    public ResponseEntity<AddressDTO> getAddressByTitle(@PathVariable String title){
         return null;
     }
 
-    @GetMapping
-    public ResponseEntity<AddressDTO> getByStreet(){
+    @GetMapping("/street/{street}")
+    public ResponseEntity<AddressDTO> getAddressByStreet(@PathVariable String street){
         return null;
     }
 
     @PostMapping
-    public ResponseEntity<AddressDTO> create(){
+    public ResponseEntity<AddressDTO> createAddress(AddressDTO request){
         return null;
     }
 
     @PutMapping
-    public ResponseEntity<AddressDTO> update(){
+    public ResponseEntity<AddressDTO> updateAddress(AddressDTO request){
         return null;
     }
 
     @DeleteMapping
-    public void delete(){
+    public void deleteAddress(AddressDTO request){
 
     }
 
-    @GetMapping
-    public List<ResponseEntity<AddressDTO>> listAll(){
+    @DeleteMapping("/{id}")
+    public void deleteAddressById(@PathVariable Long id){
+
+    }
+
+    @GetMapping("/list")
+    public List<ResponseEntity<AddressDTO>> listAllAddresses(){
         return null;
     }
 
-    @GetMapping
-    public List<ResponseEntity<AddressDTO>> listByRegion(){
+    @GetMapping("/region/{region}")
+    public List<ResponseEntity<AddressDTO>> listAddressesByRegion(@PathVariable String region){
         return null;
     }
 
-    @GetMapping
-    public List<ResponseEntity<AddressDTO>> listByCityName(){
+    @GetMapping("/city/{city}")
+    public List<ResponseEntity<AddressDTO>> listAddressesByCityName(@PathVariable String city){
         return null;
     }
 
-    @GetMapping
-    public List<ResponseEntity<AddressDTO>> listByStateName(){
+    @GetMapping("/state/{state}")
+    public List<ResponseEntity<AddressDTO>> listAddressesByStateName(@PathVariable String state){
         return null;
     }
 
-    @GetMapping
-    public List<ResponseEntity<AddressDTO>> listByUf(){
+    @GetMapping("/uf/{uf}")
+    public List<ResponseEntity<AddressDTO>> listAddressesByUf(@PathVariable String uf){
         return null;
     }
 }
