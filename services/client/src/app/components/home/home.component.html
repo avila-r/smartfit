@@ -2,6 +2,6 @@
     <app-header></app-header>
     <app-form (submit)="submit()"></app-form>
     <app-legend></app-legend>
-    <app-units *ngIf="(showList)" [units]="units"></app-units>
+    <app-units *ngIf="(showList | async)" [units]="units"></app-units>
     <app-footer></app-footer>
 </div>

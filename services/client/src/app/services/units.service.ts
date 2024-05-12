@@ -16,7 +16,7 @@ type hourIndexes = 'morning' | 'afternoon' | 'night'
   providedIn: 'root'
 })
 export class UnitsService {
-  private url = "https://test-frontend-developer.s3.amazonaws.com/data/locations.json";
+  private url = "http://localhost:8080/locations";
   private unitsSubject: BehaviorSubject<Location[]> = new BehaviorSubject<Location[]>([]);
   private units: Observable<Location[]> = this.unitsSubject.asObservable();
   private filteredUnits: Location[] = [];
