@@ -1,6 +1,8 @@
 package com.avila.smartfit.controller;
 import com.avila.smartfit.dto.AddressDTO;
+import com.avila.smartfit.service.AddressService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.List;
 @RequestMapping("/address")
 @AllArgsConstructor
 public class AddressController {
+    private final AddressService addressService;
 
     @GetMapping("/{id}")
     public ResponseEntity<AddressDTO> getAddressByPathVariableId(@PathVariable Long id){
@@ -34,7 +37,9 @@ public class AddressController {
 
     @PostMapping
     public ResponseEntity<AddressDTO> createAddress(AddressDTO request){
-        return null;
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(addressService.saveAddress(request));
     }
 
     @PutMapping

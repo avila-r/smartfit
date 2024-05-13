@@ -1,5 +1,5 @@
 package com.avila.smartfit.controller;
-import com.avila.smartfit.dto.UnitListDTO;
+import com.avila.smartfit.dto.Locations;
 import com.avila.smartfit.exception.advice.InvalidEndpointException;
 import com.avila.smartfit.service.AdviceService;
 import lombok.AllArgsConstructor;
@@ -18,7 +18,7 @@ public class AdviceController {
     }
 
     @GetMapping("/locations")
-    public UnitListDTO getAllLocations(){
+    public Locations getAllLocations(){
         return adviceService.getUnitListDTO();
     }
 }

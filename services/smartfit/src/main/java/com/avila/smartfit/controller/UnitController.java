@@ -1,7 +1,9 @@
 package com.avila.smartfit.controller;
 import com.avila.smartfit.dto.AddressDTO;
 import com.avila.smartfit.dto.UnitDTO;
+import com.avila.smartfit.service.UnitService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.List;
 @RequestMapping("/unit")
 @AllArgsConstructor
 public class UnitController {
+    private final UnitService unitService;
 
     @GetMapping("/{id}")
     public ResponseEntity<UnitDTO> getUnitByPathVariableId(@PathVariable Long id){
@@ -29,8 +32,10 @@ public class UnitController {
     }
 
     @PostMapping
-    public ResponseEntity<UnitDTO> createUnit(){
-        return null;
+    public ResponseEntity<UnitDTO> createUnit(@RequestBody UnitDTO request){
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(unitService.saveUnit(request));
     }
 
     @PutMapping
