@@ -1,7 +1,7 @@
 package com.avila.smartfit.service;
 import com.avila.smartfit.dto.AddressDTO;
 import com.avila.smartfit.dto.UnitDTO;
-import com.avila.smartfit.dto.UnitListDTO;
+import com.avila.smartfit.dto.Locations;
 import com.avila.smartfit.exception.advice.UnreadableUnitsJsonException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,7 +18,7 @@ public class AdviceService {
     private final UnitService unitService;
     private final AddressService addressService;
 
-    public UnitListDTO getUnitListDTO(){
+    public Locations getUnitListDTO(){
         return getLocations();
     }
 
@@ -48,9 +48,9 @@ public class AdviceService {
                 .toList();
     }
 
-    private UnitListDTO getLocations() {
+    private Locations getLocations() {
         try {
-            return objectMapper.readValue(restTemplate.getForObject("https://test-frontend-developer.s3.amazonaws.com/data/locations.json", String.class), UnitListDTO.class);
+            return objectMapper.readValue(restTemplate.getForObject("https://test-frontend-developer.s3.amazonaws.com/data/locations.json", String.class), Locations.class);
         } catch (JsonProcessingException e) {
             throw new UnreadableUnitsJsonException();
         }
