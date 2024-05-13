@@ -4,7 +4,7 @@ import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
-@Repository
+@Repository @SuppressWarnings("unused")
 public interface UnitRepository extends ListCrudRepository<Unit, Long> {
     Optional<Unit> findByTitle(String title);
     boolean existsByTitle(String title);
