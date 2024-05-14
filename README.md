@@ -89,12 +89,12 @@ Therefore, the API persists under the collection of objects present in the units
 - Retrieves units by attributes.
 - Dynamically modifies unit information as needed.
 
-## Testing
+## Running
 The application needs to run as a multi-container application using **Docker Engine** (for Linux) or **Docker Desktop** (for MacOS & Windows). If you want to run locally, need to refactor `url variables` for each service.
 
 **1. Clone Repository:**
 ```bash
-$ git clone https://github.com/avila-r/product-management-service && cd product-management-service
+$ git clone https://github.com/avila-r/smartfit && cd smartfit
 ```
 
 **2. Run Docker Compose:**
@@ -106,3 +106,13 @@ $ docker compose up --build --force-recreate
 Then, your local machine will build all images and run application with environments defined at __smartfit/docker-compose.yml__. There are three containers: `smartfit-api`, at port `8080`; `smartfit-client`, at port `4200`; `smartfitdb`, at port `5432`.
 
 Optionally, you can run manually each service locally without using Docker, but it requires additional configuration.
+
+## Documentation
+
+Each service has your own project description. You can see each service's description below:
+
+|       Service     |    Description                                                                                     |
+|-------------------|----------------------------------------------------------------------------------------------------|
+|    Smartfit API   | [`smartfit/README.md`](https://github.com/avila-r/smartfit/blob/main/services/smartfit/README.md)  |
+| Smartfit Web Page | [`client/README.md`](https://github.com/avila-r/smartfit/blob/main/services/client/README.md)      |
+| Smartfit Database | [`database/README.md`](https://github.com/avila-r/smartfit/blob/main/services/database/README.md)  |
