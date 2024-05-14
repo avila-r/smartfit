@@ -1,5 +1,6 @@
 package com.avila.smartfit.exception.advice.handler;
 import com.avila.smartfit.exception.advice.InvalidEndpointException;
+import com.avila.smartfit.exception.advice.InvalidRequestParamException;
 import com.avila.smartfit.exception.advice.UnreadableUnitsJsonException;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.http.HttpStatus;
@@ -20,5 +21,11 @@ public class AdviceExceptionHandler {
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(new UnreadableUnitsJsonException.Response(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage()));
+    }
+    @ExceptionHandler(InvalidRequestParamException.class)
+    ResponseEntity<InvalidRequestParamException.Response> handleInvalidRequestParamException(@NotNull InvalidRequestParamException e){
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(new InvalidRequestParamException.Response(HttpStatus.BAD_REQUEST, e.getMessage()));
     }
 }
