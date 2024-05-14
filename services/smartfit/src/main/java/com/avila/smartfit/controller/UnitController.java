@@ -16,7 +16,9 @@ public class UnitController {
 
     @GetMapping("/{id}")
     public ResponseEntity<UnitDTO> getUnitByPathVariableId(@PathVariable Long id){
-        return null;
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(unitService.getUnitById(id));
     }
 
     @GetMapping
