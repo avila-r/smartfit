@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  smartfit-api:
+    build:
+      context: ./services/smartfit
+    ports:
+      - "8080:8080"
+    depends_on:
+      - smartfitdb
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://smartfitdb:5432/smartfitdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 123
+
+  smartfit-client:
+    build:
+      context: ./services/client
+    ports:
+      - "4200:4200"
+    depends_on:
+      - smartfit-api
+    environment:
+      API_URL: http://smartfit-api:8080
+
+  smartfitdb:
+    build:
+      context: ./services/database
+    environment:
+      POSTGRES_DB: smartfitdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
