@@ -90,20 +90,20 @@ public class UnitService {
         );
     }
 
-    public List<UnitDTO> getAllUnits(){
+    public List<UnitDTO> listAllUnits(){
         return unitRepository.findAll().stream()
                 .map(this::build)
                 .toList();
     }
 
-    public List<UnitDTO> getAllOpenedUnits(){
+    public List<UnitDTO> listAllOpenedUnits(){
         return unitRepository.findAll().stream()
                 .map(this::build)
                 .filter(UnitDTO::opened)
                 .toList();
     }
 
-    public List<UnitDTO> getAllClosedUnits(){
+    public List<UnitDTO> listAllClosedUnits(){
         return unitRepository.findAll().stream()
                 .map(this::build)
                 .filter(unitDTO -> !unitDTO.opened())
