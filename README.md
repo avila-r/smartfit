@@ -81,10 +81,28 @@ However, the list of objects in the `locations` field has two possible distinct 
 
 Therefore, the API persists under the collection of objects present in the units JSON and assigns them accordingly to the associated entities, storing the units in a database. With this service, it's possible to query `units` and `addresses` (untracked units) based on specific attributes. Although it's possible to directly consume the JSON file containing the registered units in the Angular application, it's more interesting to consume a RESTful service responsible for this, as some [features](#funcionalidades) are assigned.
 
-### Features
+## Features
 - Loads units from the JSON file `https://test-frontend-developer.s3.amazonaws.com/data/locations.json`.
 - Stores all tracked and untracked units.
 - Retrieves all units.
 - Retrieves units with filters.
 - Retrieves units by attributes.
 - Dynamically modifies unit information as needed.
+
+## Testing
+The application needs to run as a multi-container application using **Docker Engine** (for Linux) or **Docker Desktop** (for MacOS & Windows). If you want to run locally, need to refactor `url variables` for each service.
+
+**1. Clone Repository:**
+```bash
+$ git clone https://github.com/avila-r/product-management-service && cd product-management-service
+```
+
+**2. Run Docker Compose:**
+
+```bash
+$ docker compose up --build --force-recreate
+```
+
+Then, your local machine will build all images and run application with environments defined at __smartfit/docker-compose.yml__. There are three containers: `smartfit-api`, at port `8080`; `smartfit-client`, at port `4200`; `smartfitdb`, at port `5432`.
+
+Optionally, you can run manually each service locally without using Docker, but it requires additional configuration.
