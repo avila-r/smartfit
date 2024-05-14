@@ -16,7 +16,7 @@ type hourIndexes = 'morning' | 'afternoon' | 'night'
   providedIn: 'root'
 })
 export class UnitsService {
-  private url = "http://localhost:8080/locations";
+  private url = "http://smartfit-api:8080/locations";
   private unitsSubject: BehaviorSubject<Location[]> = new BehaviorSubject<Location[]>([]);
   private units: Observable<Location[]> = this.unitsSubject.asObservable();
   private filteredUnits: Location[] = [];
